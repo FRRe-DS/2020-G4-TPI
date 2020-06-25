@@ -6,6 +6,7 @@ import Navigation from './components/navigation/Navigation';
 import Home from './components/home/Home';
 import Hospitales from './components/hospitales/Hospitales';
 import Reporte from './components/reporte/Reporte';
+import Recursos from './components/recursos/Recursos';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/hospitales" component={Hospitales} />
         <Route path="/reporte" component={Reporte} />
+        <Route path="/recursos" component={Recursos}/>
       </div>
 
     </Router>
