@@ -52,7 +52,7 @@ export class Tarjeta extends Component {
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <p className="h5 text-center font-poppins">No re lleves las manos a los ojos, nariz ni boca</p>
+                                <p className="h5 text-center font-poppins">No te lleves las manos a los ojos, nariz ni boca</p>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@ export class Tarjeta extends Component {
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <p className="h5 text-center font-poppins">Permanecé en tu domiciolio durante el aislamiento</p>
+                                <p className="h5 text-center font-poppins">Permanecé en tu domicilio durante el aislamiento</p>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ export class Tarjeta extends Component {
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <p className="h5 text-center font-poppins">Redicí el contacto físico con otras personas</p>
+                                <p className="h5 text-center font-poppins">Reducí el contacto físico con otras personas</p>
                             </div>
                         </div>
                     </div>

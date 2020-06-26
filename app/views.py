@@ -85,7 +85,7 @@ class RecursoViewSet(viewsets.ModelViewSet):
         s = self.get_serializer(data=self.request.data)
         s.is_valid(raise_exception=True)
         try:
-            hospital = s.validated_data.get('hospital')
+            # hospital = s.validated_data.get('hospital')
             sr = SolicitudRecurso()
             sr.hospital = s.validated_data.get('hospital')
             sr.motivo = s.validated_data.get('motivo')
