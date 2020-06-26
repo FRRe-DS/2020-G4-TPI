@@ -23,6 +23,9 @@ export default class Navigation extends Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/hospitales"> Hospitales </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/recursos"> Recursos </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
