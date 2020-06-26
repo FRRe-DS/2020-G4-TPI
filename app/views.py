@@ -3,6 +3,8 @@ from django.http import JsonResponse
 
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.exceptions import APIException
@@ -20,15 +22,42 @@ class HospitalViewSet(viewsets.ModelViewSet):
     queryset = Hospital.objects.all()
     serializer_class = HospitalSerializer
 
+    authentication_classes = [JSONWebTokenAuthentication]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+
 class ProvinciaViewSet(viewsets.ModelViewSet):
 
     queryset = Provincia.objects.all()
     serializer_class = ProvinciaSerializer
 
+    authentication_classes = [JSONWebTokenAuthentication]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+
 class PacienteViewSet(viewsets.ModelViewSet):
 
     queryset = Paciente.objects.all()
     serializer_class = PacienteSerializer
+
+    authentication_classes = [JSONWebTokenAuthentication]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
 
     @action(methods=('get', ), detail=False)
     def asintomaticos(self, *args, **kwargs):
@@ -69,11 +98,29 @@ class MedicoViewSet(viewsets.ModelViewSet):
     queryset = Medico.objects.all()
     serializer_class = MedicoSerializer
 
+    authentication_classes = [JSONWebTokenAuthentication]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+
 
 class RecursoViewSet(viewsets.ModelViewSet):
 
     queryset = Recurso.objects.all()
     serializer_class = RecursoSerializer
+
+    authentication_classes = [JSONWebTokenAuthentication]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
 
     def get_serializer_class(self):
         if self.action == 'solicitud':
