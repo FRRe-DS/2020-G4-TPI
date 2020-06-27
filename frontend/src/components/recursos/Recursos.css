@@ -1,0 +1,11 @@
+.btn-clean-filter .icon-back{
+    background-image: url('../../assets/icons/noun_Delete_black.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 10px;
+}
+
+.btn-clean-filter:hover .icon-back{
+    background-image: url('../../assets/icons/noun_Delete_white.svg');
+}
