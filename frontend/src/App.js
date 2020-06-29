@@ -7,6 +7,8 @@ import Home from './components/home/Home';
 import Hospitales from './components/hospitales/Hospitales';
 import Reporte from './components/reporte/Reporte';
 import Recursos from './components/recursos/Recursos';
+import Solicitudes from './components/solicitudes/Solicitudes'
+import Login from './components/login/Login'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/hospitales" component={Hospitales} />
         <Route path="/reporte" component={Reporte} />
         <Route path="/recursos" component={Recursos}/>
+        <Route path="/solicitudes" component={Solicitudes}/>
+        <Route path="/login" component={Login}/>
       </div>
 
     </Router>
