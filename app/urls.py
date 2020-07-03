@@ -45,6 +45,7 @@ router.register('hospital', HospitalViewSet, basename='hospital')
 router.register('paciente', PacienteViewSet, basename='paciente')
 router.register('medico', MedicoViewSet, basename='medico')
 router.register('recurso', RecursoViewSet, basename='recurso')
+router.register('solicitud', SolicitudRecursoViewSet, basename='solicitud')
 
 urlpatterns = [
     path(r'', include((router.urls, 'api'), namespace='api')),

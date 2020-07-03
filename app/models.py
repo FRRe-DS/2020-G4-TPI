@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+from django.contrib.auth.models import User
 
 from . import utils
 
@@ -50,8 +51,14 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     dni = models.IntegerField(unique=True, help_text='Solo números')
-    direccion = models.CharField(max_length=200, null=True, blank=True, help_text='Direccion donde reside del Paciente')
-    localidad = models.CharField(max_length=200, null=True, blank=True, default='Resistencia', help_text='Localidad donde reside del Paciente')
+    direccion = models.CharField(
+        max_length=200, null=True, blank=True,
+        help_text='Direccion donde reside'
+    )
+    localidad = models.CharField(
+        max_length=200, null=True, blank=True, default='Resistencia',
+        help_text='Localidad donde reside'
+    )
     genero = models.CharField(
         max_length=1,
         choices=utils.generos,
@@ -92,20 +99,12 @@ class Paciente(Persona):
         default='A',
         help_text='Sintomático o asintomático',
     )
-    patologias = models.TextField(
-        blank=True, 
-        null=True)
+    patologias = models.TextField(blank=True, null=True)
     fecha_creacion = models.DateTimeField(
-        blank=True, 
-        null=True, 
-        auto_now_add=True, 
+        blank=True, null=True, auto_now_add=True,
         help_text='Fecha de confirmación del caso como COVID-19 positivo')
-    fecha_alta = models.DateTimeField(
-        blank=True, 
-        null=True)
-    fecha_defuncion = models.DateTimeField(
-        blank=True, 
-        null=True)
+    fecha_alta = models.DateTimeField(blank=True, null=True)
+    fecha_defuncion = models.DateTimeField(blank=True, null=True)
     medico = models.ForeignKey(
         to=Medico,
         related_name='pacientes',
@@ -137,6 +136,12 @@ class Solicitud(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return self.motivo
+
+    def __unicode__(self):
+        return self.motivo
+
 
 class SolicitudRecurso(Solicitud):
     hospital = models.ForeignKey(
@@ -149,6 +154,7 @@ class SolicitudRecurso(Solicitud):
         related_name='solicitudes',
         through='SolicitudRecursoItem'
     )
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class SolicitudRecursoItem(models.Model):
@@ -156,3 +162,5 @@ class SolicitudRecursoItem(models.Model):
         SolicitudRecurso, on_delete=models.CASCADE)
     recurso = models.ForeignKey(Recurso, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=1, help_text='Cantidad solicitada')
+    cantidad_enviada = models.IntegerField(
+        blank=True, null=True, help_text='Cantidad enviada')

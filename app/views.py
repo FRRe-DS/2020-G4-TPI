@@ -31,6 +31,7 @@ class HospitalViewSet(viewsets.ModelViewSet):
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
 
+
 class ProvinciaViewSet(viewsets.ModelViewSet):
 
     queryset = Provincia.objects.all()
@@ -44,6 +45,7 @@ class ProvinciaViewSet(viewsets.ModelViewSet):
         else:
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
+
 
 class PacienteViewSet(viewsets.ModelViewSet):
 
@@ -122,31 +124,24 @@ class RecursoViewSet(viewsets.ModelViewSet):
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
 
-    def get_serializer_class(self):
-        if self.action == 'solicitud':
-            return SolicitudRecursoSerializer
-        return RecursoSerializer
 
-    @action(methods=('post', ), detail=False)
-    def solicitud(self, *args, **kwargs):
-        s = self.get_serializer(data=self.request.data)
-        s.is_valid(raise_exception=True)
-        try:
-            # hospital = s.validated_data.get('hospital')
-            sr = SolicitudRecurso()
-            sr.hospital = s.validated_data.get('hospital')
-            sr.motivo = s.validated_data.get('motivo')
-            sr.detalle = s.validated_data.get('detalle')
-            sr.save()
-            # falta lógica para guardar los recursos solicitados
-            return Response({
-                'id': sr.id,
-                'hospital': HospitalSerializer(sr.hospital).data,
-                'motivo': sr.motivo,
-                'detalle': sr.detalle,
-                'estado': sr.estado
-            })
-        except Exception as e:
-            return JsonResponse(
-                data={'code': 500, 'message': str(e)}, status=500
-            )
+class SolicitudRecursoViewSet(viewsets.ModelViewSet):
+
+    queryset = SolicitudRecurso.objects.all()
+    serializer_class = SolicitudRecursoSerializer
+
+    authentication_classes = [JSONWebTokenAuthentication]
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+
+    def get_serializer_class(self):
+        if self.action in ['update', 'partial_update']:
+            return SolicitudRecursoUpdateSerializer
+        elif self.action == 'create':
+            return SolicitudRecursoCreateSerializer
+        return SolicitudRecursoSerializer
