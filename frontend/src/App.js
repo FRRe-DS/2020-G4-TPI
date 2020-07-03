@@ -7,6 +7,7 @@ import Home from './components/home/Home';
 import Hospitales from './components/hospitales/Hospitales';
 import Reporte from './components/reporte/Reporte';
 import Recursos from './components/recursos/Recursos';
+import FormEditRecurso from './components/recursos/FormEditRecurso';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/hospitales" component={Hospitales} />
         <Route path="/reporte" component={Reporte} />
         <Route path="/recursos" component={Recursos}/>
+        <Route path="/recursos/edit/:id" component={FormEditRecurso}/>
       </div>
 
     </Router>

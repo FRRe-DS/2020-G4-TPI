@@ -9,3 +9,24 @@
 .btn-clean-filter:hover .icon-back{
     background-image: url('../../assets/icons/noun_Delete_white.svg');
 }
+
+.form{
+    border:1px solid gray; 
+    border-radius: 6px;
+    padding: 20px;
+}
+.mimodal{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+}
+.contenedor-modal{
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+.loader{
+
+}

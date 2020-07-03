@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import DataTable from 'react-data-table-component'
+import { Link } from 'react-router-dom'
 import './Recursos.css'
+import icon_delete from '../../assets/icons/delete.svg'
+import icon_edit from '../../assets/icons/edit.svg'
 
 const columnas = [
     {
@@ -25,14 +28,24 @@ const columnas = [
         sortable: true
     },
     {
-        cell: () => <button className="btn btn-secondary">Edit</button>,
+        name: 'Editar',
+        cell: row => <Link className="btn btn-secondary" to={'/recursos/edit/'+row.id} title="Editar"><img src={icon_edit} width="20px" height="auto" alt=""/></Link>,
         button: true,
     },
     {
-        cell: () => <button className="btn btn-danger" >Delete</button>,
+        name: 'Borrar',
+        cell: row => <button className="btn btn-danger" onClick={() => deleteRecurso(row.id)} title="Borrar"><img src={icon_delete} width="20px" height="auto" alt=""/></button>,
         button: true,
     },
 ]
+
+function editRecurso (id) {
+    console.log('Editar Recurso', id)
+}
+
+function deleteRecurso (id) {
+    console.log('Borrar Recurso', id)
+}
 
 const optPag = {
     rowsPerPageText: 'Filas por Página',
@@ -65,6 +78,7 @@ export class Recursos extends Component {
         this.setState({
             filtroRecurso: e.target.value,
         })
+
         const recursos = await this.state.recursos
 
         if(this.state.filtroRecurso != ''){
@@ -111,10 +125,10 @@ export class Recursos extends Component {
                         subHeaderComponent={
                         (
                             <div style={{ display: 'flex', alignItems: 'right' }}>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Buqueda" value={this.state.filtroRecurso} onChange={this.filtrarRecurso} aria-label="Busqueda" aria-describedby="button-addon2" />
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-primary btn-clean-filter" type="button" id="button-addon2" onClick={this.cleanFilter} title="Borrar Filtro">
+                                <div className="input-group mb-3">
+                                    <input type="text" className="form-control" placeholder="Buqueda" value={this.state.filtroRecurso} onChange={this.filtrarRecurso} aria-label="Busqueda" aria-describedby="button-addon2" />
+                                    <div className="input-group-append">
+                                        <button className="btn btn-outline-primary btn-clean-filter" type="button" id="button-addon2" onClick={this.cleanFilter} title="Borrar Filtro">
                                             <i className="icon-back"></i>
                                         </button>
                                     </div>
