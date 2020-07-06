@@ -4,7 +4,7 @@ import escudo from '../../assets/icons/escudo-argentina.svg'
 import user from '../../assets/icons/user-man.svg'
 import arrow_up from '../../assets/icons/arrow-up.svg'
 import isAuth from '../../Auth'
-
+import './Navigation.css'
 
 
 export default class Navigation extends Component {
@@ -18,8 +18,9 @@ export default class Navigation extends Component {
     }
 
     viewUser = async () => {
+        let estado = await this.state.viewUser
         this.setState({
-            viewUser: true
+            viewUser: !estado
         })
         await this.isLogged()
     }
@@ -63,6 +64,9 @@ export default class Navigation extends Component {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/recursos"> Recursos </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/solicitudes"> Solicitudes </Link>
                             </li>
                         </ul>
                         <a className="rounded-circle user" title="Mi Usuario" onClick={this.viewUser}>
