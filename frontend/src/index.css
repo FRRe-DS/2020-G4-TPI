@@ -8,3 +8,34 @@
 .font-poppins{
     font-family: 'Poppins', sans-serif;
 }
+
+.user{
+    height: 40px !important;
+    width: 40px !important;
+    background-color: honeydew;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.icon-user{
+    height: 40px !important;
+    width: 40px !important;
+    padding: 5px;
+}
+.panel-user{
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    z-index: 1000;
+    color: white;
+    border-top: 1px solid #f0f0f0;
+}
+.close-view-user{
+    width: 30px !important;
+    height: 30px !important;
+    cursor: pointer;
+}
+.close-view-user:hover{
+    background: #c8c8c8;
+}

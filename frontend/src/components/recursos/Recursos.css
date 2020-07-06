@@ -27,6 +27,11 @@
     background-color: #ffffff;
     border-radius: 6px;
 }
-.loader{
-
+.delete-container{
+    position: absolute;
+    width: 350px;
+    top: 150px;
+    left: 50%;
+    margin-left: -175px;
+    border-radius: 6px;
 }

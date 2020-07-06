@@ -29,19 +29,16 @@ const columnas = [
     },
     {
         name: 'Editar',
-        cell: row => <Link className="btn btn-secondary" to={'/recursos/edit/'+row.id} title="Editar"><img src={icon_edit} width="20px" height="auto" alt=""/></Link>,
+        cell: row => <Link className="btn btn-secondary" to={`/recursos/edit/${row.id}`} title="Editar"><img src={icon_edit} width="20px" height="auto" alt=""/></Link>,
         button: true,
     },
     {
         name: 'Borrar',
-        cell: row => <button className="btn btn-danger" onClick={() => deleteRecurso(row.id)} title="Borrar"><img src={icon_delete} width="20px" height="auto" alt=""/></button>,
+        cell: row => <Link className="btn btn-danger" to={`/recursos/delete/${row.id}`} title="Borrar"><img src={icon_delete} width="20px" height="auto" alt=""/></Link>,
         button: true,
     },
 ]
 
-function editRecurso (id) {
-    console.log('Editar Recurso', id)
-}
 
 function deleteRecurso (id) {
     console.log('Borrar Recurso', id)
@@ -58,12 +55,14 @@ export class Recursos extends Component {
     state = {
         recursos:[],
         recursosFiltrados:[],
-        filtroRecurso:''
+        filtroRecurso:'',
     }    
 
-    async componentDidMount() {
+    async componentDidMount(){
         await this.getRecursos()
-        console.log(this.state.recursos)
+    }
+    async componentDidUpdate(){
+        ((this.props.match.params.action==='updated')||(this.props.match.params.action==='deleted')||(this.props.match.params.action==='added'))? await this.getRecursos() : console.log('no update')
     }
 
     getRecursos = async () => {
@@ -110,7 +109,78 @@ export class Recursos extends Component {
                    <h2 className="font-poppins text-center my-3">Recursos</h2>
                 </div>
                 <hr/>
+                {
+                    ((this.props.match.params.action == 'added')&&(this.props.match.params.id !== undefined))?
+                        <div className="col-6 mx-auto">
+                            {
+                                (this.props.match.params.id === '0')?
+                                <div className="alert alert-danger" role="alert">
+                                    <strong>Error!</strong> No se pudo agregar el recurso
+                                    <Link type="button" className="close" to="/recursos">
+                                        <span aria-hidden="true">&times;</span>
+                                    </Link>
+                                </div>
+                                :
+                                <div className="alert alert-success" role="alert">
+                                    <strong>Perfecto!</strong> Se agrego un nuevo recurso
+                                    <Link type="button" className="close" to="/recursos">
+                                        <span aria-hidden="true">&times;</span>
+                                    </Link>
+                                </div>
+                            }
+                        </div>
+                    :false
+                }
+                {
+                    ((this.props.match.params.action == 'updated')&&(this.props.match.params.id !== undefined))?
+                        <div className="col-6 mx-auto">
+                            {
+                                (this.props.match.params.id === '0')?
+                                <div className="alert alert-danger" role="alert">
+                                    <strong>Error!</strong> No se pudo actualizar
+                                    <Link type="button" className="close" to="/recursos">
+                                        <span aria-hidden="true">&times;</span>
+                                    </Link>
+                                </div>
+                                :
+                                <div className="alert alert-success" role="alert">
+                                    <strong>Perfecto!</strong> Actualización completada
+                                    <Link type="button" className="close" to="/recursos">
+                                        <span aria-hidden="true">&times;</span>
+                                    </Link>
+                                </div>
+                            }
+                        </div>
+                    :false
+                }
+                {
+                    ((this.props.match.params.action == 'deleted')&&(this.props.match.params.id !== undefined))?
+                        <div className="col-6 mx-auto">
+                            {
+                                (this.props.match.params.id === '0')?
+                                <div className="alert alert-danger" role="alert">
+                                    <strong>Error!</strong> No se pudo eliminar
+                                    <Link type="button" className="close" to="/recursos">
+                                        <span aria-hidden="true">&times;</span>
+                                    </Link>
+                                </div>
+                                :
+                                <div className="alert alert-success" role="alert">
+                                    <strong>Perfecto!</strong> Recurso eliminado
+                                    <Link type="button" className="close" to="/recursos">
+                                        <span aria-hidden="true">&times;</span>
+                                    </Link>
+                                </div>
+                            }
+                        </div>
+                    :false
+                }
                 <div className="table-responsive">
+                    <div className="row">
+                        <div className="col-12 text-right">
+                            <Link className="btn btn-success" to="/recursos/add">Nuevo Recurso</Link>
+                        </div>
+                    </div>
                     <DataTable 
                         title="Listado de Recursos" 
                         columns={columnas}

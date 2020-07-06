@@ -3,39 +3,32 @@ import './Recursos.css';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-export class FormEditRecurso extends Component {
+export class FormNewRecurso extends Component {
     state={
-        id: '',
         nombre:'',
         descripcion: '',
         estado:'',
         cantidad:0,
         saving: false,
+        validate: true,
     }
     async componentDidMount(){
-        this.getRecurso()
+
     }
 
-    getRecurso = async () => {
-        let idRecurso = await this.props.match.params.id
-        let res = await axios.get('http://localhost:8000/api/recurso/'+idRecurso)
-        this.setState({
-            id:res.data.id,
-            nombre:res.data.nombre,
-            descripcion: res.data.descripcion,
-            estado: res.data.estado,
-            cantidad:res.data.cantidad
-        })
-    }
-
-    onChangeIdRecurso = (e) => {
-        // console.log('Accion no permitida!')
-    }
-
-    onChangeNombreRecurso = (e) => {
+    onChangeNombreRecurso = async (e) => {
         this.setState({
             nombre: e.target.value
         })
+        if((e.target.value).trim() !== ''){
+            this.setState({
+                validate: false
+            })
+        }else{
+            this.setState({
+                validate: true
+            })
+        }
         // console.log('Nombre Recurso: ',this.state.nombre)
     }
 
@@ -62,7 +55,6 @@ export class FormEditRecurso extends Component {
 
     resetState = () => {
         this.setState({
-            id: '',
             nombre:'',
             descripcion: '',
             estado:'',
@@ -95,18 +87,19 @@ export class FormEditRecurso extends Component {
         
         let redirect
 
-        await Axios.put('/recurso/'+this.state.id+'/', recurso)
+        await Axios.post('/recurso/', recurso)
         .then(res=>{
             console.log(res)
-            redirect = "/recursos/updated/"+this.state.id
+            redirect = "/recursos/added/1"
         })
         .catch(e=>{
             console.log(e)
-            redirect = "/recursos/updated/0"
+            redirect = "/recursos/added/0"
         })
         this.resetState()
         this.props.history.push(redirect)
     }
+
 
     render() {
         return (
@@ -116,7 +109,7 @@ export class FormEditRecurso extends Component {
                         <div className="col-10 col-md-6 col-lg-5 col-xl-4 mx-auto mt-5 contenedor-modal shadow-lg" id="staticBackdrop">
                             <div className="row pt-3 pb-2 px-3" style={{borderBottom:'1px solid #e3e3e3'}}>
                                 <div className="col-10">
-                                    <h4 className="font-poppins">Editar Recurso</h4>
+                                    <h4 className="font-poppins">Nuevo Recurso</h4>
                                 </div>
                                 <div className="col-2 my-auto">
                                     <Link type="button" className="close" title="Cerrar" onClick={this.resetState} to={'/recursos/'}>
@@ -127,12 +120,6 @@ export class FormEditRecurso extends Component {
                             <div className="row px-3 pt-3 pb-3">
                                 <div className="col">
                                     <form action="" className="font-poppins">
-                                        <div className="form-group row">
-                                            <label htmlFor="id" className="col-sm-3 col-md-4 col-lg-3 col-xl-4 col-form-label text-right font-weight-bold">ID:</label>
-                                            <div className="col-sm-9 col-md-8 col-lg-9 col-xl-8">
-                                                <input className="form-control" type="text" id="id" onChange={this.onChangeIdRecurso} value={this.state.id || ''} disabled />
-                                            </div>
-                                        </div>
                                         <div className="form-group row">
                                             <label htmlFor="nombre" className="col-sm-3 col-md-4 col-lg-3 col-xl-4 col-form-label text-right font-weight-bold">Nombre:</label>
                                             <div className="col-sm-9 col-md-8 col-lg-9 col-xl-8">
@@ -152,7 +139,7 @@ export class FormEditRecurso extends Component {
                                             </div>                                            
                                         </div>
                                         <div className="form-group">
-                                            <button className="btn btn-block btn-success" onClick={this.saveRecurso}>
+                                            <button className="btn btn-block btn-success" onClick={this.saveRecurso} disabled={this.state.validate}>
                                                 { 
                                                     !this.state.saving ? 
                                                         <span id="save">Guardar</span>
@@ -177,4 +164,4 @@ export class FormEditRecurso extends Component {
     }
 }
 
-export default FormEditRecurso
+export default FormNewRecurso
