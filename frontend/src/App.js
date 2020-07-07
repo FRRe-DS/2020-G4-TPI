@@ -14,6 +14,7 @@ import Logout from './components/logout/Logout';
 import DeleteRecurso from './components/recursos/DeleteRecurso';
 import FormNewRecurso from './components/recursos/FormNewRecurso';
 import Solicitudes from './components/solicitudes/Solicitudes'
+import DetalleSolicitud from './components/solicitudes/DetalleSolicitud';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
         <PrivateRoute path="/recursos/add" component={FormNewRecurso}/>
         <PrivateRoute path="/recursos/edit/:id" component={FormEditRecurso}/>
         <PrivateRoute path="/recursos/delete/:id" component={DeleteRecurso}/>
-        <PrivateRoute path="/solicitudes" component={Solicitudes}/>
+        <PrivateRoute exact path="/solicitudes" component={Solicitudes}/>
+        <PrivateRoute exact path="/solicitudes/:id" component={DetalleSolicitud}/>
         <Route path="/login" component={Login}/>
         <Route exact path="/logout" component={Logout} />
       </div>

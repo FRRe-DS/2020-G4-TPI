@@ -39,11 +39,6 @@ const columnas = [
     },
 ]
 
-
-function deleteRecurso (id) {
-    console.log('Borrar Recurso', id)
-}
-
 const optPag = {
     rowsPerPageText: 'Filas por Página',
     rangeSeparatorText: 'de',

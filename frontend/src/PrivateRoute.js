@@ -1,9 +1,13 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import isAuth from './Auth'
+
 
 let existToken = () => {
     if(localStorage.getItem('token') !== null){
-        return true
+        if(isAuth()){
+            return true
+        }
     }
     return false
 }
