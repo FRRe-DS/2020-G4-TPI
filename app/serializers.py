@@ -161,6 +161,9 @@ class SolicitudRecursoUpdateSerializer(serializers.ModelSerializer):
                 recurso__id=rec_dict['recurso'])
             item.cantidad_enviada = rec_dict['cantidad_enviada']
             item.save()
+            rec = Recurso.objects.get(id=rec_dict['recurso'])
+            rec.cantidad = rec.cantidad - rec_dict['cantidad_enviada']
+            rec.save()
         instance.fecha_respuesta = datetime.now()
         instance.respuesta = validated_data.get('respuesta')
         instance.estado = validated_data.get('estado')
