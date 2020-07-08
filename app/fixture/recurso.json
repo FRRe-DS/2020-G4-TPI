@@ -32,11 +32,21 @@
     {
         "model":"app.recurso",
         "pk":7,
-        "fields":{"nombre":"Medicina","descripcion":"Ibuprofeno","estado":"True","cantidad":9800}
+        "fields":{"nombre":"Ibuprofeno","descripcion":"400mg","estado":"True","cantidad":9800}
     },
     {
         "model":"app.recurso",
         "pk":8,
+        "fields":{"nombre":"Ibuprofeno","descripcion":"600mg","estado":"True","cantidad":4800}
+    },
+    {
+        "model":"app.recurso",
+        "pk":9,
+        "fields":{"nombre":"Paracetamol","descripcion":"500mg","estado":"True","cantidad":10500}
+    },
+    {
+        "model":"app.recurso",
+        "pk":10,
         "fields":{"nombre":"Bata quirurgica","descripcion":"-","estado":"True","cantidad":5900}
     }
 ]

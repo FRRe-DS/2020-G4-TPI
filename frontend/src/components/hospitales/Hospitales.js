@@ -20,7 +20,6 @@ export default class Hospitales extends Component {
     async componentDidMount(){
         await this.getHospitales()
         await this.getProvincias()
-        console.log(this.state.hospitales)
     }
 
     getHospitales = async () => { 
@@ -48,27 +47,23 @@ export default class Hospitales extends Component {
         this.setState({
             nombreHospital: e.target.value
         })
-        console.log('Nombre Hospital: ',this.state.nombreHospital)
     }
 
     onChangeDireccionHospital = (e) => {
         this.setState({
             direccionHospital: e.target.value
         })
-        console.log('Direccion Hospital: ',this.state.direccionHospital)
     }
     onChangeLocalidadHospital = (e) => {
         this.setState({
             localidadHospital: e.target.value
         })
-        console.log('Nombre Localidad: ',this.state.localidadHospital)
     }
 
     onChangeProvinciaHospital = (e) => {
         this.setState({
             provinciaHospital: e.target.value
         })
-        console.log('Nombre Provincia: ',this.state.provinciaHospital)
     }
 
     onSubmitSave = async (e) => {
@@ -80,7 +75,6 @@ export default class Hospitales extends Component {
                 localidad: this.state.localidadHospital,
                 provincia: this.state.provinciaHospital
             })
-            console.log(res)
         }else{
             const res = await axios.put('http://localhost:8000/api/hospital/'+this.state._id, {
             nombre: this.state.nombreHospital,
@@ -88,24 +82,19 @@ export default class Hospitales extends Component {
             localidad: this.state.localidadHospital,
             provincia: this.state.provinciaHospital
             })
-            console.log(res)
         }
         this.setDatos()
         this.getHospitales()
     }
 
     deleteHospital =  async(id) => {
-        console.log('Hospital: ', id)
         const res = await axios.delete('http://localhost:8000/api/hospital/' + id)
         this.setDatos()
-        console.log(res)
         this.getHospitales()
     }
 
     editHospital = async(id) => {
-        console.log('Hospital: ', id)
         const res = await axios.get('http://localhost:8000/api/hospital/' + id)
-        console.log(res)
         this.setState({
             update: true,
             _id: id,

@@ -6,10 +6,13 @@
             "nombre": "Malena",
             "apellido": "Bosch",
             "dni": 4349371,
+            "localidad": "Resistencia",
+            "genero":"F",
             "fecha_nacimiento": "1998-4-17",
             "estado": "A",
             "condicion": "S",
             "patologias": "tos, fiebre",
+            "fecha_creacion": "2020-3-15",
             "medico": 1,
             "hospital": 1
         }
@@ -21,10 +24,13 @@
             "nombre": "Elena",
             "apellido": "Bosch",
             "dni": 4350341,
+            "localidad": "Resistencia",
+            "genero":"F",
             "fecha_nacimiento": "1998-6-21",
             "estado": "A",
             "condicion": "S",
             "patologias": "fiebre",
+            "fecha_creacion": "2020-3-15",
             "medico": 1,
             "hospital": 1
         }
@@ -36,10 +42,13 @@
             "nombre": "Rafael",
             "apellido": "Benitez",
             "dni": 21046847,
+            "localidad": "Fontana",
+            "genero":"M",
             "fecha_nacimiento": "1964-8-12",
             "estado": "E",
             "condicion": "S",
             "patologias": "tos, fiebre, dolor muscular, dificultad para respirar",
+            "fecha_creacion": "2020-3-19",
             "medico": 2,
             "hospital": 1
         }
@@ -51,10 +60,13 @@
             "nombre": "Miriam",
             "apellido": "Brener",
             "dni": 44424796,
+            "localidad": "Barranqueras",
+            "genero":"F",
             "fecha_nacimiento": "2002-6-24",
             "estado": "EE",
             "condicion": "A",
             "patologias": "tos",
+            "fecha_creacion": "2020-4-04",
             "medico": 3,
             "hospital": 1
         }
@@ -66,10 +78,13 @@
             "nombre": "Tobias",
             "apellido": "Roch",
             "dni": 34547684,
+            "localidad": "Fontana",
+            "genero":"M",
             "fecha_nacimiento": "1992-7-14",
             "estado": "A",
             "condicion": "A",
             "patologias": "-",
+            "fecha_creacion": "2020-4-04",
             "medico": 4,
             "hospital": 2
         }
@@ -81,10 +96,13 @@
             "nombre": "Marcos",
             "apellido": "Videla",
             "dni": 42146789,
+            "localidad": "Resistencia",
+            "genero":"M",
             "fecha_nacimiento": "1996-7-14",
             "estado": "C",
             "condicion": "S",
             "patologias": "vomitos, tos, fiebre",
+            "fecha_creacion": "2020-4-10",
             "medico": 8,
             "hospital": 5
         }
@@ -96,12 +114,428 @@
             "nombre": "Lautaro",
             "apellido": "Perez",
             "dni": 28674382,
+            "localidad": "Resistencia",
+            "genero":"M",
             "fecha_nacimiento": "1962-6-2",
             "estado": "F",
             "condicion": "S",
             "patologias": "fiebre",
+            "fecha_creacion": "2020-4-11",
+            "fecha_defuncion": "2020-06-17T02:31:43.160Z",
             "medico": 9,
             "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 8,
+        "fields": {
+            "nombre": "Federico",
+            "apellido": "Mareci",
+            "dni": 34542223,
+            "localidad": "Resistencia",
+            "genero":"M",
+            "fecha_nacimiento": "1957-3-12",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "fiebre, tos",
+            "fecha_creacion": "2020-4-19",
+            "medico": 6,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 9,
+        "fields": {
+            "nombre": "Maria",
+            "apellido": "Soles",
+            "dni": 28623482,
+            "localidad": "Barranqueras",
+            "genero": "F",
+            "fecha_nacimiento": "1988-6-2",
+            "estado": "F",
+            "condicion": "S",
+            "patologias": "fiebre",
+            "fecha_defuncion": "2020-04-20T02:31:43.160Z",
+            "fecha_creacion": "2020-5-05",
+            "medico": 9,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 10,
+        "fields": {
+            "nombre": "Rocio",
+            "apellido": "Andujar",
+            "dni": 33445456,
+            "localidad": "Barranqueras",
+            "genero":"F",
+            "fecha_nacimiento": "1962-6-2",
+            "estado": "C",
+            "condicion": "A",
+            "patologias": "-",
+            "fecha_creacion": "2020-5-05",
+            "medico": 9,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 11,
+        "fields": {
+            "nombre": "Marcelo",
+            "apellido": "Fernandez",
+            "dni": 22304530,
+            "localidad": "Lapachito",
+            "genero":"M",
+            "fecha_nacimiento": "1993-6-2",
+            "estado": "E",
+            "condicion": "A",
+            "patologias": "-",
+            "fecha_creacion": "2020-5-05",
+            "medico": 9,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 12,
+        "fields": {
+            "nombre": "Gustavo",
+            "apellido": "Juarez",
+            "dni": 30494585,
+            "localidad": "Barranqueras",
+            "genero":"M",
+            "fecha_nacimiento": "1979-6-2",
+            "estado": "C",
+            "condicion": "S",
+            "patologias": "fiebre, Dolor de garganta",
+            "fecha_creacion": "2020-5-05",
+            "medico": 9,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 13,
+        "fields": {
+            "nombre": "Rolando",
+            "apellido": "Azula",
+            "dni": 13456234,
+            "localidad": "Fontana",
+            "genero":"M",
+            "fecha_nacimiento": "1965-6-2",
+            "estado": "F",
+            "condicion": "S",
+            "patologias": "fiebre, tos, dificultades respiratorias",
+            "fecha_creacion": "2020-5-10",
+            "fecha_defuncion": "2020-06-20T02:31:43.160Z",
+            "medico": 9,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 14,
+        "fields": {
+            "nombre": "Rocio",
+            "apellido": "Arrieta",
+            "dni": 37484932,
+            "localidad": "Fontana",
+            "genero":"F",
+            "fecha_nacimiento": "1992-6-2",
+            "estado": "C",
+            "condicion": "S",
+            "patologias": "fiebre",
+            "fecha_creacion": "2020-5-22",
+            "medico": 9,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 15,
+        "fields": {
+            "nombre": "Mariano",
+            "apellido": "Gonzalez",
+            "dni": 10394853,
+            "localidad": "Charata",
+            "genero":"M",
+            "fecha_nacimiento": "1955-6-2",
+            "estado": "F",
+            "condicion": "S",
+            "patologias": "fiebre, dificultades respiratorias",
+            "fecha_creacion": "2020-5-22",
+            "fecha_defuncion": "2020-06-19T02:31:43.160Z",
+            "medico": 9,
+            "hospital": 6
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 16,
+        "fields": {
+            "nombre": "Jorge",
+            "apellido": "Azcuenaga",
+            "dni": 31034928,
+            "localidad": "La Leonesa",
+            "fecha_nacimiento": "1977-6-2",
+            "genero":"M",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "fiebre, tos, dolor de garganta",
+            "fecha_creacion": "2020-6-21",
+            "medico": 2,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 17,
+        "fields": {
+            "nombre": "Saul",
+            "apellido": "Ramirez",
+            "dni": 33944532,
+            "localidad": "La Leonesa",
+            "fecha_nacimiento": "1954-6-2",
+            "genero":"M",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "fiebre, tos, dolor de garganta",
+            "fecha_creacion": "2020-6-21",
+            "medico": 2,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 18,
+        "fields": {
+            "nombre": "Gaston",
+            "apellido": "Torres",
+            "dni": 22934934,
+            "localidad": "La Leonesa",
+            "fecha_nacimiento": "1970-6-2",
+            "genero":"M",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "fiebre, tos, dolor de garganta",
+            "fecha_creacion": "2020-6-15",
+            "medico": 2,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 19,
+        "fields": {
+            "nombre": "Romina",
+            "apellido": "Masin",
+            "dni": 354434456,
+            "localidad": "Barranqueras",
+            "genero":"F",
+            "fecha_nacimiento": "1994-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-22",
+            "medico": 3,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 20,
+        "fields": {
+            "nombre": "Marcelo",
+            "apellido": "Fernandez",
+            "dni": 34544344,
+            "localidad": "Resistencia",
+            "genero":"M",
+            "fecha_nacimiento": "1994-6-12",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos, Fiebre",
+            "fecha_creacion": "2020-6-22",
+            "medico": 3,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 21,
+        "fields": {
+            "nombre": "Tatiana",
+            "apellido": "Gonzales",
+            "dni": 30923492,
+            "localidad": "Lapachito",
+            "genero":"F",
+            "fecha_nacimiento": "1990-6-24",
+            "estado": "E",
+            "condicion": "A",
+            "patologias": "-",
+            "fecha_creacion": "2020-6-22",
+            "medico": 3,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 22,
+        "fields": {
+            "nombre": "Gaston",
+            "apellido": "Bermudez",
+            "dni": 32034234,
+            "localidad": "Charata",
+            "genero":"M",
+            "fecha_nacimiento": "1987-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-22",
+            "medico": 3,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 23,
+        "fields": {
+            "nombre": "Raul",
+            "apellido": "Rodriguez",
+            "dni": 32034223,
+            "localidad": "Lapachito",
+            "genero":"M",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-22",
+            "medico": 3,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 24,
+        "fields": {
+            "nombre": "Mario",
+            "apellido": "Rodriguez",
+            "dni": 320334323,
+            "localidad": "Lapachito",
+            "genero":"M",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-23",
+            "medico": 3,
+            "hospital": 1
+        }
+    },
+    {
+        "model": "app.paciente",
+        "pk": 24,
+        "fields": {
+            "nombre": "Raul",
+            "apellido": "Rodriguez",
+            "dni": 31034223,
+            "localidad": "Lapachito",
+            "genero":"M",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-23",
+            "medico": 3,
+            "hospital": 1
+        }
+    },{
+        "model": "app.paciente",
+        "pk": 24,
+        "fields": {
+            "nombre": "Raul",
+            "apellido": "Rodriguez",
+            "dni": 32454223,
+            "localidad": "Resistencia",
+            "genero":"M",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-23",
+            "medico": 3,
+            "hospital": 1
+        }
+    },{
+        "model": "app.paciente",
+        "pk": 25,
+        "fields": {
+            "nombre": "Federico",
+            "apellido": "Figueredo",
+            "dni": 32039323,
+            "localidad": "Lapachito",
+            "genero":"M",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-23",
+            "medico": 3,
+            "hospital": 1
+        }
+    },{
+        "model": "app.paciente",
+        "pk": 26,
+        "fields": {
+            "nombre": "Rosita",
+            "apellido": "Mendez",
+            "dni": 31234223,
+            "localidad": "Resistencia",
+            "genero":"F",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "A",
+            "patologias": "-",
+            "fecha_creacion": "2020-6-23",
+            "medico": 3,
+            "hospital": 1
+        }
+    },{
+        "model": "app.paciente",
+        "pk": 27,
+        "fields": {
+            "nombre": "Luis",
+            "apellido": "Gutti",
+            "dni": 32099823,
+            "localidad": "Resistencia",
+            "genero":"M",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "S",
+            "patologias": "tos",
+            "fecha_creacion": "2020-6-23",
+            "medico": 3,
+            "hospital": 1
+        }
+    },{
+        "model": "app.paciente",
+        "pk": 28,
+        "fields": {
+            "nombre": "Laura",
+            "apellido": "Quintana",
+            "dni": 32035423,
+            "localidad": "Fontana",
+            "genero":"F",
+            "fecha_nacimiento": "1973-6-24",
+            "estado": "E",
+            "condicion": "A",
+            "patologias": "-",
+            "fecha_creacion": "2020-6-23",
+            "medico": 3,
+            "hospital": 1
         }
     }
 ]

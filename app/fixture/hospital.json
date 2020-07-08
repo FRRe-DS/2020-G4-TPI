@@ -3,10 +3,10 @@
         "model": "app.hospital",
         "pk": 1,
         "fields": {
-            "nombre": "Juan Pablo Segundo",
-            "direccion": "Av. Artigas 1435",
-            "localidad": "Corrientes",
-            "provincia": 6
+            "nombre": "Sanatorio Güemes",
+            "direccion": "Güemes 501",
+            "localidad": "Resistencia",
+            "provincia": 3
         }
     },
     {
@@ -23,70 +23,70 @@
         "model": "app.hospital",
         "pk": 3,
         "fields": {
-            "nombre": "Interzonal",
-            "direccion": "JUan B Justo 6898",
-            "localidad": "Mar del PLata",
-            "provincia": 1
+            "nombre": "Sanatorio Modelo",
+            "direccion": "Av Sarmiento 184",
+            "localidad": "Resistencia",
+            "provincia": 3
         }
     },
     {
         "model": "app.hospital",
         "pk": 4,
         "fields": {
-            "nombre": "Hospital Escuela",
-            "direccion": "Av. 3 de Abril 1224",
-            "localidad": "Corrientes",
-            "provincia": 6
+            "nombre": "Sanatorio Palacio",
+            "direccion": "Cordoba 421",
+            "localidad": "Resistencia",
+            "provincia": 3
         }
     },
     {
         "model": "app.hospital",
         "pk": 5,
         "fields": {
-            "nombre": "Dr. Ricardo Gutierrez",
-            "direccion": "-",
-            "localidad": "La Plata",
-            "provincia": 1
+            "nombre": "Sanatorio Chaco",
+            "direccion": "Almirante Brown 315",
+            "localidad": "Resistencia",
+            "provincia": 3
         }
     },
     {
         "model": "app.hospital",
         "pk": 6,
         "fields": {
-            "nombre": "Hospital Rawson",
-            "direccion": "Bajada Pucara 2025",
-            "localidad": "Cordoba",
-            "provincia": 5
+            "nombre": "Clinica klinic",
+            "direccion": "Av 9 de Julio 4202",
+            "localidad": "Barranqueras",
+            "provincia": 3
         }
     },
     {
         "model": "app.hospital",
         "pk": 7,
         "fields": {
-            "nombre": "Hospital Cordoba",
-            "direccion": "Libertad 2051",
-            "localidad": "Cordoba",
-            "provincia": 5
+            "nombre": "Hospital Barranqueras Eva Peron",
+            "direccion": "Av 9 de Julio 4902",
+            "localidad": "Barranqueras",
+            "provincia": 3
         }
     },
     {
         "model": "app.hospital",
         "pk": 8,
         "fields": {
-            "nombre": "Hospital San Bernardo",
-            "direccion": "Av. Jose Tobias 69",
-            "localidad": "Salta",
-            "provincia": 16
+            "nombre": "Hospital Luis Fleitas",
+            "direccion": "-",
+            "localidad": "Fontana",
+            "provincia": 3
         }
     },
     {
         "model": "app.hospital",
         "pk": 9,
         "fields": {
-            "nombre": "Hospital San Martin",
+            "nombre": "Sanatorio Antártida",
             "direccion": "-",
-            "localidad": "Paraná",
-            "provincia": 7
+            "localidad": "Resistencia",
+            "provincia": 3
         }
     }
 ]

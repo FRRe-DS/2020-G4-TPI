@@ -56,6 +56,8 @@ docker-compose exec app python manage.py migrate --noinput
 
 6. Abrir el navegador e ingresar a **http://127.0.0.1:8000/api/swagger/** para ver la documentación
 
+7. Abrir el navegador e ingresar a **http://127.0.0.1:3000/** para ver la aplicación
+
 En caso de tener algún problema al momento de la instalación o para obtener más detalles consultar este [tutorial](https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/)
 
 ## Licencia 📄

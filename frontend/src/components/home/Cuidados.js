@@ -9,7 +9,7 @@ export class Cuidados extends Component {
             <div className="container">
                 <div className="row pt-5">
                     <div className="col-12">
-                        <h1 className="font-weight-bold font-OpenSans text-center mb-5">Cuidadados</h1>
+                        <h1 className="font-weight-bold font-OpenSans text-center mb-5">Cuidados</h1>
                         <div className="row mb-5">
                             <Tarjeta />
                         </div>

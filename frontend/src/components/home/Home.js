@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './Home.css'
 import '../../assets/img/Coronavirus.jpg'
 import { Cuidados } from './Cuidados'
+import isAuth from '../../Auth'
 
 export default class Home extends Component {
     render() {

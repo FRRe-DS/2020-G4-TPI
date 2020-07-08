@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import localidadesArgentina from '../../assets/json/localidades.json'
+import ReporteDptos from './ReporteDptos';
+import ReportePacienteEstados from './ReportePacienteEstados';
+import ReporteMensual from './ReporteMensual';
+import ReporteCiudades from './ReporteCiudades'
 import './Reporte.css'
+
 
 
 export class Reporte extends Component {
     state = {
+        ciudades: [],
         pacientes: [],
         pacientesHoy: [],
         pacientesProvincias: [],
@@ -12,17 +19,14 @@ export class Reporte extends Component {
         provincias: [],
         fecha: '',
     }
+    
 
     async componentDidMount() {
         await this.getHospitales()
         await this.getProvincias()
         await this.getPacientes()
         this.getFechaActual()
-        this.getPacientesForDay('')
-        console.log(this.state.pacientes)
-        console.log(this.state.hospitales)
-        console.log(this.state.provincias)
-        console.log(this.state.fecha)
+        this.getPacientesForDay()
     }
 
     getPacientes = async () => {
@@ -47,16 +51,21 @@ export class Reporte extends Component {
         this.setState({ fecha: diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear() })
     }
 
-    getPacientesForDay = (fecha) => {
-        const pacientesdeldia = this.state.pacientes.filter(paciente => paciente.fecha = fecha)
-        console.log(pacientesdeldia)
+    getPacientesForDay = async () => {
+        const pacientes = await this.state.pacientes
+        let today = new Date();
+        let fecha = today.toISOString().split("T")[0]
+        const pacientesdeldia = pacientes.filter(paciente => paciente.fecha_creacion.split("T")[0] === fecha)
+        this.setState({
+            pacientesHoy: pacientesdeldia
+        })
     }
 
 
 
     render() {
         return (
-            <div className="container">
+            <div className="container mb-5">
                 <div className="row my-3">
                     <div className="col text-center">
                         <h2 className="font-poppins">Reporte Diario</h2>
@@ -74,9 +83,9 @@ export class Reporte extends Component {
                     <div className="col">
                         <ul>
                             <li>
-                                <p>Contagios de hoy:
+                                <p>Contagios confirmados de hoy:
                                     <span className="font-weight-bold">
-                                        &nbsp;{this.state.pacientes.length}
+                                        &nbsp;{this.state.pacientesHoy.length}
                                     </span>
                                 </p>
                             </li>
@@ -84,31 +93,59 @@ export class Reporte extends Component {
                                     <li>
                                         <p>Hombres:
                                             <span className="font-weight-bold">
-                                                &nbsp;{this.state.pacientes.filter(paciente => paciente.genero === 'M').length}
+                                                &nbsp;{this.state.pacientesHoy.filter(paciente => paciente.genero === 'M').length}
                                             </span>
                                         </p>
                                     </li>
                                     <li>
                                         <p>Mujeres:
                                             <span className="font-weight-bold">
-                                                &nbsp;{this.state.pacientes.filter(paciente => paciente.genero === 'F').length}
+                                                &nbsp;{this.state.pacientesHoy.filter(paciente => paciente.genero === 'F').length}
                                             </span>
                                         </p>
                                     </li>
                                 </ul>
                             <li>
-                                <p>Total Contagiados:
+                                <p>Total Contagiados en la provincia del Chaco:
                                     <span className="font-weight-bold">
                                         &nbsp;{this.state.pacientes.length}
                                     </span>
                                 </p>
                             </li>
-                            <li>
-                                <p>Contagios por Provincias:</p>
-                            </li>
+                            <ul>
+                                <li>
+                                    <p>Hombres:
+                                        <span className="font-weight-bold">
+                                            &nbsp;{this.state.pacientes.filter(paciente => paciente.genero === 'M').length}
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Mujeres:
+                                        <span className="font-weight-bold">
+                                            &nbsp;{this.state.pacientes.filter(paciente => paciente.genero === 'F').length}
+                                        </span>
+                                    </p>
+                                </li>
+                            </ul>
                         </ul>
-
-
+                    </div>
+                </div>
+                <hr/>
+                <div className="row mt-5">
+                    <div className="col-md-6">
+                        <ReportePacienteEstados />
+                    </div>
+                    <div className="col-md-6">
+                        <ReporteMensual/>
+                    </div>
+                </div>
+                <div className="row mt-5">
+                    <div className="col-md-6">
+                        <ReporteDptos />
+                    </div>
+                    <div className="col-md-6">
+                        <ReporteCiudades/>
                     </div>
                 </div>
             </div>
