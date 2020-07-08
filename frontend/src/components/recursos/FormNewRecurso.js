@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Recursos.css';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { baseURL } from '../../URLbase';
 
 export class FormNewRecurso extends Component {
     state={
@@ -69,10 +70,9 @@ export class FormNewRecurso extends Component {
             'estado': await this.state.estado,
             'cantidad': await this.state.cantidad,
         }
-        const apiURL = 'http://localhost:8000/api'
         const token = localStorage.getItem('token')
         const Axios = axios.create({
-            baseURL:apiURL,
+            baseURL:baseURL,
             headers:{
                 Authorization: `JWT ${token}`,
                 ['Content-Type']: `application/json`

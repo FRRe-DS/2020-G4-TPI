@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Recursos.css'
+import { baseURL } from '../../URLbase'
 
 export class DeleteRecurso extends Component {
     state = {
@@ -16,11 +17,9 @@ export class DeleteRecurso extends Component {
     }
 
     confirmDelete = async () => {
-
-        const apiURL = 'http://localhost:8000/api'
         const token = localStorage.getItem('token')
         const Axios = axios.create({
-            baseURL:apiURL,
+            baseURL:baseURL,
             headers:{
                 Authorization: `JWT ${token}`,
                 ['Content-Type']: `application/json`

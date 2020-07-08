@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Recursos.css';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { baseURL } from '../../URLbase';
 
 export class FormEditRecurso extends Component {
     state={
@@ -18,7 +19,7 @@ export class FormEditRecurso extends Component {
 
     getRecurso = async () => {
         let idRecurso = await this.props.match.params.id
-        let res = await axios.get('http://localhost:8000/api/recurso/'+idRecurso)
+        let res = await axios.get(`${baseURL}/recurso/${idRecurso}/`)
         this.setState({
             id:res.data.id,
             nombre:res.data.nombre,
@@ -73,10 +74,9 @@ export class FormEditRecurso extends Component {
             'estado': await this.state.estado,
             'cantidad': await this.state.cantidad,
         }
-        const apiURL = 'http://localhost:8000/api'
         const token = localStorage.getItem('token')
         const Axios = axios.create({
-            baseURL:apiURL,
+            baseURL:baseURL,
             headers:{
                 Authorization: `JWT ${token}`,
                 ['Content-Type']: `application/json`

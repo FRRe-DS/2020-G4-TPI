@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { baseURL } from './URLbase'
 
 
 const existToken = () => {
@@ -14,7 +15,7 @@ const isAuth = async () => {
         let data = {
             "token" : localStorage.getItem('token')
         }
-        await axios.post('http://localhost:8000/api/auth/verify-token/',data)
+        await axios.post(`${baseURL}/auth/verify-token/`,data)
         .then(res =>{
             if(res.status === 200) estado = true
         })

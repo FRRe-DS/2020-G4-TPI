@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { baseURL } from '../../URLbase'
 
 export class Login extends Component {
     state={
@@ -31,7 +32,7 @@ export class Login extends Component {
             "password": this.state.password
         }
 
-        await axios.post('http://localhost:8000/api/auth/get-token/',data)
+        await axios.post(`${baseURL}/auth/get-token/`,data)
         .then(res=>{
             localStorage.setItem('token',res.data.token);
             this.props.history.push("/")

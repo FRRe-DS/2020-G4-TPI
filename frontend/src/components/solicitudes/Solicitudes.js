@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import DataTable from 'react-data-table-component'
 import icon_detail from '../../assets/icons/details.svg'
 import { Link } from 'react-router-dom'
+import { baseURL } from '../../URLbase';
 
 const columnas = [
     {
@@ -75,7 +76,7 @@ export default class Solicitud extends Component{
     }
     
     getSolicitudes = async () => {
-        axios.get('http://localhost:8000/api/solicitud')
+        axios.get(`${baseURL}/solicitud/`)
         .then(res =>{
             this.setState({
                 solicitudes: res.data,

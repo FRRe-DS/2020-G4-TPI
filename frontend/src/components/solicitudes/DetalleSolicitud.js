@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Solicitudes.css'
+import { baseURL } from '../../URLbase';
 
 export class DetalleSolicitud extends Component {
     state={
@@ -30,7 +31,7 @@ export class DetalleSolicitud extends Component {
 
     getSolicitud = async () => {
         let id = this.props.match.params.id
-        await axios.get(`http://localhost:8000/api/solicitud/${id}`)
+        await axios.get(`${baseURL}/solicitud/${id}`)
         .then(res=>{
             this.setState({
                 solicitud: res.data,
@@ -51,7 +52,7 @@ export class DetalleSolicitud extends Component {
     }
 
     getRecursos = async () => {
-        const res = await axios.get('http://localhost:8000/api/recurso/')
+        const res = await axios.get(`${baseURL}/recurso/`)
         this.setState({ 
             recursos: res.data,
         })
@@ -137,10 +138,9 @@ export class DetalleSolicitud extends Component {
             recurso.recursos.push(rec)
         })
                 
-        const apiURL = 'http://localhost:8000/api'
         const token = localStorage.getItem('token')
         const Axios = axios.create({
-            baseURL:apiURL,
+            baseURL:baseURL,
             headers:{
                 Authorization: `JWT ${token}`,
                 ['Content-Type']: `application/json`

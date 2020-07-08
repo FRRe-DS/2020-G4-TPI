@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Line} from 'react-chartjs-2';
+import { baseURL } from '../../URLbase';
 
 export class ReporteMensual extends Component {
     state = {
@@ -38,7 +39,7 @@ export class ReporteMensual extends Component {
   }
 
   getPacientes = async () => {
-      const res = await axios.get('http://localhost:8000/api/paciente/')
+      const res = await axios.get(`${baseURL}/paciente/`)
       this.setState({ pacientes: res.data })
   }
 

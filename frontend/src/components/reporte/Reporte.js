@@ -6,6 +6,7 @@ import ReportePacienteEstados from './ReportePacienteEstados';
 import ReporteMensual from './ReporteMensual';
 import ReporteCiudades from './ReporteCiudades'
 import './Reporte.css'
+import { baseURL } from '../../URLbase';
 
 
 
@@ -30,17 +31,17 @@ export class Reporte extends Component {
     }
 
     getPacientes = async () => {
-        const res = await axios.get('http://localhost:8000/api/paciente/')
+        const res = await axios.get(`${baseURL}/paciente/`)
         this.setState({ pacientes: res.data })
     }
 
     getHospitales = async () => {
-        const res = await axios.get('http://localhost:8000/api/hospital/')
+        const res = await axios.get(`${baseURL}/hospital/`)
         this.setState({ hospitales: res.data })
     }
 
     getProvincias = async () => {
-        const res = await axios.get('http://localhost:8000/api/provincia/')
+        const res = await axios.get(`${baseURL}/provincia/`)
         this.setState({ provincias: res.data })
     }
 

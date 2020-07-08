@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import './Recursos.css'
 import icon_delete from '../../assets/icons/delete.svg'
 import icon_edit from '../../assets/icons/edit.svg'
+import { baseURL } from '../../URLbase'
+
 
 const columnas = [
     {
@@ -61,7 +63,7 @@ export class Recursos extends Component {
     }
 
     getRecursos = async () => {
-        const res = await axios.get('http://localhost:8000/api/recurso/')
+        const res = await axios.get(`${baseURL}/recurso/`)
         this.setState({ 
             recursos: res.data,
             recursosFiltrados: res.data

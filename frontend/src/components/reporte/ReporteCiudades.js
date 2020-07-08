@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import localidadesArgentina from '../../assets/json/localidades.json'
 import {Bar} from 'react-chartjs-2';
+import { baseURL } from '../../URLbase';
 
 export class ReporteCiudades extends Component {
     state = {
@@ -32,7 +33,7 @@ export class ReporteCiudades extends Component {
     }
 
     getPacientes = async () => {
-        const res = await axios.get('http://localhost:8000/api/paciente/')
+        const res = await axios.get(`${baseURL}/paciente/`)
         this.setState({ pacientes: res.data })
     }
 
