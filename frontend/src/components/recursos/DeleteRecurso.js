@@ -12,12 +12,10 @@ export class DeleteRecurso extends Component {
     }
 
     cancelDelete = () => {
-        console.log('Cancelado!')
         this.props.history.push("/recursos")
     }
 
     confirmDelete = async () => {
-        console.log('Eliminando!')
 
         const apiURL = 'http://localhost:8000/api'
         const token = localStorage.getItem('token')
@@ -49,7 +47,6 @@ export class DeleteRecurso extends Component {
         this.setState({
             id: id
         })
-        console.log(this.state.id)
     }
 
     resetState = () => {

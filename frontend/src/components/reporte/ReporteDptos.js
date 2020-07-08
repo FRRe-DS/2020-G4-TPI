@@ -50,7 +50,6 @@ export class ReporteDptos extends Component {
         }
         
         this.setState({ ciudades: localidadesChaco })
-        //console.log('Localidades Filtradas', this.state.ciudades);
     }
 
     getPacientesDepartamentos = async () => {
@@ -59,7 +58,6 @@ export class ReporteDptos extends Component {
 
         // Ordenar todos los departamentos alfabeticamente
         if(deptos) deptos = deptos.sort((a, b) => a.departamento.localeCompare(b.departamento))
-        // console.log('dpetos ordenados', deptos)
 
         let depto = deptos[0].departamento
         let localidad = {
@@ -75,11 +73,9 @@ export class ReporteDptos extends Component {
 
         for (let i = 0; i < deptos.length; i++) {
             localidad.nombre = deptos[i].localidad
-            //console.log(localidad)
 
             if(depto != deptos[i].departamento){
                 ciudadesdptos.departamento=depto
-                // console.log(ciudadesdptos)
                 
                 ListaDptoCiudades.push(ciudadesdptos)
                 
@@ -106,29 +102,24 @@ export class ReporteDptos extends Component {
             "ciudades": []
         }
 
-        // console.log('Deptos-Ciudades',ListaDptoCiudades)
 
         // Obtener Lista de pacientes
         let pacientes = await this.state.pacientes
 
         // Ordenar la lista de pacientes por localidad
         if(pacientes) pacientes = pacientes.sort( (a,b) => a.localidad.localeCompare(b.localidad) )
-        // console.log('pacientes ordenados por localidad:', pacientes)
 
         let localidadPaciente = pacientes[0].localidad
         let contagiadoLocalidad = 0
 
         for (let i = 0; i < pacientes.length; i++) {
             if(localidadPaciente != pacientes[i].localidad){
-                // console.log(localidadPaciente.toUpperCase())
                 ListaDptoCiudades.map(depto => 
                     depto.ciudades.map(
                         ciudad => {
                             if(ciudad.nombre === localidadPaciente.toUpperCase()){
                                 ciudad.contagios=contagiadoLocalidad
-                                // console.log(ciudad)
                                 depto.contagios+=contagiadoLocalidad
-                                // console.log(depto)
                             }
                         }
                     )
@@ -140,15 +131,12 @@ export class ReporteDptos extends Component {
             
             contagiadoLocalidad++
         }
-        // console.log(localidadPaciente.toUpperCase())
         ListaDptoCiudades.map(depto => 
             depto.ciudades.map(
                 ciudad => {
                     if(ciudad.nombre === localidadPaciente.toUpperCase()){
                         ciudad.contagios=contagiadoLocalidad
-                        // console.log(ciudad)
                         depto.contagios+=contagiadoLocalidad
-                        // console.log(depto)
                     }
                 }
             )
@@ -158,12 +146,10 @@ export class ReporteDptos extends Component {
         
         let contagiosDeptos = ListaDptoCiudades.sort( (a,b) => b.contagios - a.contagios )
         this.setState({ contagiosDepartamento: contagiosDeptos })
-        //console.log('Contagios-Deptos-Ciudades',  this.state.contagiosDepartamento)
     }
 
     setDatosGrafica = async () => {
         let datos = await this.state.contagiosDepartamento
-        // console.log('se recibio datos',datos)
         
         let nombreDptos = []
         let contagiosDeptos = []

@@ -20,7 +20,7 @@ const isAuth = async () => {
         })
         .catch(e => {
             console.log(e)
-            localStorage.setItem('token', null)
+            localStorage.removeItem('token', null)
             estado = false
         })
         return estado

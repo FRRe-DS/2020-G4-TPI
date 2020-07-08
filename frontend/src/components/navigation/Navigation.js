@@ -31,12 +31,10 @@ export default class Navigation extends Component {
     }
     isLogged = async () => {
         if( await isAuth()){
-            // console.log('hay sesion')
             this.setState({
                 auth: true
             })
         }else{
-            // console.log('NO hay sesion')
             this.setState({
                 auth: false
             })

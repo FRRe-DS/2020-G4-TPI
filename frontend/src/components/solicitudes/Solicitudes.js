@@ -65,11 +65,6 @@ export default class Solicitud extends Component{
         await this.getSolicitudes()
     }
 
-    handleChange = state => {
-        console.log('state',state.selectedRows)
-        this.setState({selectedRows: state.selectedRows})
-    }
-
     aceptarSolicitudes = () => {
         const {selectedRows} = this.state
         const rows = selectedRows.map(s => s.name)

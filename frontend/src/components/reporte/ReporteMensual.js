@@ -40,7 +40,6 @@ export class ReporteMensual extends Component {
   getPacientes = async () => {
       const res = await axios.get('http://localhost:8000/api/paciente/')
       this.setState({ pacientes: res.data })
-      //console.log(this.state.pacientes)
   }
 
   getPacientesMes = async () => {
@@ -48,7 +47,6 @@ export class ReporteMensual extends Component {
     if(pacientes) pacientes = pacientes.sort((a,b) => a.fecha_creacion.localeCompare(b.fecha_creacion))
     
     let mesActual = new Date().getMonth()
-    // console.log(mesActual)
 
     let meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
     
@@ -62,9 +60,7 @@ export class ReporteMensual extends Component {
     for (let i = 0; i < pacientesMes.length; i++) {
       const filtro = pacientes.filter(paciente => (new Date(Date.parse(paciente.fecha_creacion))).getMonth() === i )
       if(filtro.length > 0) pacientesMes[i]=filtro.length
-      // console.log(filtro.length)
     }
-    console.log(pacientesMes)
     this.setState({
       datosMeses: {
         labels: mesesTranscurridos,

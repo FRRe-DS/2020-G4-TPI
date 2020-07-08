@@ -29,14 +29,12 @@ export class FormNewRecurso extends Component {
                 validate: true
             })
         }
-        // console.log('Nombre Recurso: ',this.state.nombre)
     }
 
     onChangeDescripcionRecurso = (e) => {
         this.setState({
             descripcion: e.target.value
         })
-        // console.log('Descripcion Recurso: ',this.state.descripcion)
     }
 
     onChangeCantidadRecurso = (e) => {
@@ -49,8 +47,6 @@ export class FormNewRecurso extends Component {
             cantidad: cantidad,
             estado: estado
         })
-        // console.log('Cantidad Recurso: ',this.state.cantidad)
-        // console.log('Estado Recurso: ',this.state.estado)
     }
 
     resetState = () => {
@@ -60,7 +56,6 @@ export class FormNewRecurso extends Component {
             estado:'',
             cantidad:0,
         })
-        // console.log('Reset de parametros');
     }
 
     saveRecurso = async (e) => {
@@ -68,7 +63,6 @@ export class FormNewRecurso extends Component {
         this.setState({
             saving: true
         })
-        // console.log('Guardando cambios')
         const recurso = {
             'nombre': await this.state.nombre,
             'descripcion': await this.state.descripcion,

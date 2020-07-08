@@ -33,7 +33,6 @@ export class ReportePacienteEstados extends Component {
 
     filterPacientesEstado = async () => {
         let pacientes = await this.state.pacientes
-        // console.log('lista pacientes ready', pacientes)
 
         const asintomaticos = pacientes.filter(paciente => paciente.estado != 'F' && paciente.estado != 'C' && paciente.condicion === 'A')
         const sintomaticos = pacientes.filter(paciente => paciente.estado != 'F' && paciente.estado != 'C' && paciente.condicion === 'S')

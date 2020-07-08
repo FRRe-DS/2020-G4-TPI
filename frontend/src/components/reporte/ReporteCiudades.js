@@ -50,7 +50,6 @@ export class ReporteCiudades extends Component {
         }
         
         this.setState({ ciudades: localidadesChaco })
-        //console.log('Localidades Filtradas', this.state.ciudades);
     }
 
     getPacientesDepartamentos = async () => {
@@ -59,7 +58,6 @@ export class ReporteCiudades extends Component {
 
         // Ordenar todos los departamentos alfabeticamente
         if(deptos) deptos = deptos.sort((a, b) => a.departamento.localeCompare(b.departamento))
-        // console.log('dpetos ordenados', deptos)
 
         let localidad = {
             "nombre": '',
@@ -70,7 +68,6 @@ export class ReporteCiudades extends Component {
 
         for (let i = 0; i < deptos.length; i++) {
             localidad.nombre = deptos[i].localidad
-            //console.log(localidad)
             ListaCiudades.push(localidad)
             localidad = {
                 "nombre": '',
@@ -78,7 +75,6 @@ export class ReporteCiudades extends Component {
             }
         }
 
-        // console.log('Lista de ciudades',ListaCiudades)
         
 
         // Obtener Lista de pacientes
@@ -86,7 +82,6 @@ export class ReporteCiudades extends Component {
 
         // Ordenar la lista de pacientes por localidad
         if(pacientes) pacientes = pacientes.sort( (a,b) => a.localidad.localeCompare(b.localidad) )
-        // console.log('pacientes ordenados por localidad:', pacientes)
 
         let localidadPaciente = pacientes[0].localidad
         let contagiadoLocalidad = 0
@@ -130,11 +125,9 @@ export class ReporteCiudades extends Component {
     setDataContagiosCiudades = async () => {
         let contagiosCiudades = await this.state.contagiosCiudad
 
-        // console.log(contagiosCiudades)
 
         if(contagiosCiudades) contagiosCiudades = contagiosCiudades.filter(ciudad => ciudad.contagios > 0)
         
-        // console.log(contagiosCiudades)
 
         let nombreCiudades= []
         let contagios=[] 
@@ -144,8 +137,6 @@ export class ReporteCiudades extends Component {
             contagios.push(contagiosCiudades[i].contagios)
         }
 
-        // console.log(nombreCiudades)
-        // console.log(contagios)
 
 
         this.setState({

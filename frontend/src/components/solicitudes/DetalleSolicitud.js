@@ -55,7 +55,6 @@ export class DetalleSolicitud extends Component {
         this.setState({ 
             recursos: res.data,
         })
-        console.log(this.state.recursos)
     }
 
     getDisponibilidad = async () => {
@@ -77,8 +76,6 @@ export class DetalleSolicitud extends Component {
         this.setState({
             recursosSolicitadosDisponibilidad: disponibilidad
         })
-        console.log(this.state.recursosSolicitadosDisponibilidad)
-
     }
 
     alertRechazo = () => {
@@ -139,9 +136,7 @@ export class DetalleSolicitud extends Component {
             }
             recurso.recursos.push(rec)
         })
-        
-        console.log('Recursos Aceptados', recurso)
-        
+                
         const apiURL = 'http://localhost:8000/api'
         const token = localStorage.getItem('token')
         const Axios = axios.create({

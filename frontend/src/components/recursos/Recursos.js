@@ -80,8 +80,6 @@ export class Recursos extends Component {
             this.setState({
                 recursosFiltrados: filter
             })
-            console.log(this.state.filtroRecurso)
-            console.log(this.state.recursosFiltrados)
         }else{
             this.setState({
                 recursosFiltrados: recursos
