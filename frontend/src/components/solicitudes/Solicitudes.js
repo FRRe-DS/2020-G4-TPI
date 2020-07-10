@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Solicitudes.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import DataTable from 'react-data-table-component'
 import icon_detail from '../../assets/icons/details.svg'
 import { Link } from 'react-router-dom'

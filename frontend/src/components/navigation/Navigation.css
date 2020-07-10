@@ -31,3 +31,12 @@
 .close-view-user:hover{
     background: #c8c8c8;
 }
+.links{
+    text-decoration: none;
+    color: #dddddd;
+    font-weight: 500;
+}
+.links:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
